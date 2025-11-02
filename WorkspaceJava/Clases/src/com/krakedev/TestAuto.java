@@ -5,14 +5,14 @@ public class TestAuto {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		Auto auto1 = new Auto();
-		Auto auto2 = new Auto();
+		Auto auto1 = new Auto("KIA");
+		Auto auto2 = new Auto("Toyota");
 		
-		auto1.setMarca("KIA");
+		//auto1.setMarca("KIA");
 		auto1.setAnio(2025);
 		auto1.setPrecio(16000);
 		
-		auto2.setMarca("Toyota");
+		//auto2.setMarca("Toyota");
 		auto2.setAnio(1989);
 		auto2.setPrecio(15000);
 		

@@ -22,4 +22,8 @@ public class Cuadrado {
 	public void setLado(int lado) {
 		this.lado = lado;
 	}
+	
+	public Cuadrado(int lado) {
+		this.lado=lado;
+	}
 }

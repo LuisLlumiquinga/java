@@ -12,7 +12,7 @@ public class TestCuenta {
 		cuenta1.setSaldo(675);
 		cuenta3.setTipo("C");
 		
-		System.out.println("-------- Valores Iniciales  --------");
+		System.out.println("-------- Valores Iniciales  ---------");
 		cuenta1.imprimir();
 		cuenta2.imprimir();
 		cuenta3.imprimir();
@@ -39,8 +39,6 @@ public class TestCuenta {
 		
 		cuenta6.setTipo("A");
 		cuenta6.imprimirConMiEstilo();
-		
-		
 	}
 
 }

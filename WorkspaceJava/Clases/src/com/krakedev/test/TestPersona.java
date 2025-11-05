@@ -7,7 +7,7 @@ public class TestPersona {
 	public static void main(String[] args) {
 		Persona p; // 1. Declaro una variable llamada p de tipo persona
 		Persona p2 = new Persona();
-		Persona p3= new Persona("Pablo");
+		//Persona p3= new Persona("Pablo");
 		Persona p4= new Persona("Rocio", 43, 1.60);
 		
 		System.out.println("nombre: " + p4.getNombre());

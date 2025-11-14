@@ -25,7 +25,7 @@ public class TestConexion {
 					"insert into personas(cedula, nombre, apellido, estado_civil_codigo, numero_hijos, estatura, cantidad_ahorrada, fecha_nacimiento, hora_nacimiento)"
 							+ "values(?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-			ps.setString(1, "1700893101");
+			ps.setString(1, "1800893101");
 			ps.setString(2, "Rosalia");
 			ps.setString(3, "Romero");
 			ps.setString(4, "U");

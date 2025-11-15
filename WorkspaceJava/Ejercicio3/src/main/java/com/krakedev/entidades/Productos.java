@@ -8,6 +8,10 @@ public class Productos {
 	private String descripcion;
 	private BigDecimal precio;
 	private int stock;
+	
+	public Productos() {
+		
+	}
 
 	public Productos(int codigo, String nombre, String descripcion, BigDecimal precio, int stock) {
 		super();
@@ -49,6 +53,7 @@ public class Productos {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
 
 	public BigDecimal getPrecio() {
 		return precio;

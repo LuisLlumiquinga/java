@@ -1,8 +1,12 @@
 package com.krakedev.servicios;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -115,5 +119,94 @@ public class AdminProductos {
 				throw new Exception("Error con la base de datos");
 			}
 		}
+	}
+	
+	public static ArrayList<Productos> buscarPorNombre(String nombreBusqueda) throws Exception{
+		ArrayList<Productos> productos=new ArrayList<Productos>();
+		Connection con = null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		
+		try {
+			con = ConexionBDD.conectar();
+			ps=con.prepareStatement("select * from productos where nombre like ?");
+			
+			ps.setString(1, "%"+nombreBusqueda+"%");
+			
+			rs=ps.executeQuery();
+			
+			while(rs.next()) {
+				int codigo=rs.getInt("codigo");
+				String nombre=rs.getString("nombre");
+				String descripcion=rs.getString("descripcion");
+				String precioStr=rs.getString("precio");
+				precioStr=precioStr.replaceAll("[^0-9.]", "");
+				BigDecimal precio= new BigDecimal(precioStr).divide(new BigDecimal("100")).setScale(2, RoundingMode.HALF_UP);
+				int stock=rs.getInt("stock");
+				
+				Productos p=new Productos();
+				p.setCodigo(codigo);
+				p.setNombre(nombre);
+				p.setDescripcion(descripcion);
+				p.setPrecio(precio);
+				p.setStock(stock);
+				productos.add(p);
+			}
+			
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por nombre", e);
+			throw new Exception("Error al consultar por nombre");
+		} finally {
+			// cerrar la conexion
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la base de datos", e);
+				throw new Exception("Error con la base de datos");
+			}
+		}
+		
+		return productos;
+	}
+	
+	public static Productos buscarPorClavePrimaria(int codigo) throws Exception{
+		Connection con = null;
+		PreparedStatement ps=null;
+		ResultSet rs=null;
+		Productos p=new Productos();
+		
+		try {
+			con = ConexionBDD.conectar();
+			ps=con.prepareStatement("select * from productos where codigo = ?");
+			
+			ps.setInt(1, codigo);
+			
+			rs=ps.executeQuery();
+			
+			if(rs.next()) {
+				p.setCodigo(rs.getInt("codigo"));
+				p.setNombre(rs.getString("nombre"));
+				p.setDescripcion(rs.getString("descripcion"));
+				String precioStr = rs.getString("precio");
+				precioStr = precioStr.replaceAll("[^0-9.]", "");
+				BigDecimal precioBD = new BigDecimal(precioStr).movePointLeft(2);
+				p.setPrecio(precioBD);
+				p.setStock(rs.getInt("stock"));	
+			}
+			
+		} catch (Exception e) {
+			LOGGER.error("Error al consultar por nombre", e);
+			throw new Exception("Error al consultar por nombre");
+		} finally {
+			// cerrar la conexion
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error con la base de datos", e);
+				throw new Exception("Error con la base de datos");
+			}
+		}
+		
+		return p;
 	}
 }

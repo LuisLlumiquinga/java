@@ -13,7 +13,7 @@ public class ConexionBDD {
 	private final static String DRIVER="org.postgresql.Driver";
 	private final static String URL="jdbc:postgresql://localhost:5432/repaso_prueba";
 	private final static String USUARIO="postgres";
-	private final static String CLAVE="4189";
+	private final static String CLAVE="418";
 	private static final Logger LOGGER=LogManager.getLogger(ConexionBDD.class);
 	
 	public static Connection conectar() throws KrakeException{

@@ -114,11 +114,11 @@ public class ServiciosCategoria {
 				LOGGER.trace("No se encontró categoria con id: " + id);
 			}
 		} catch (KrakeException e) {
-			LOGGER.error("Error al buscar categoria", e);
+			LOGGER.error("Error al conectarse con la BDD, categoria", e);
 			throw e;
 		} catch (Exception e) {
 			LOGGER.error("Error al buscar categoria", e);
-			throw new KrakeException("Error al buscar");
+			throw new KrakeException("Error al buscar categoria");
 		} finally {
 			// cerrar la conexion
 			if (con != null) {
@@ -157,11 +157,11 @@ public class ServiciosCategoria {
 			}
 			
 		} catch (KrakeException e) {
-			LOGGER.error("Error al buscar categoria", e);
+			LOGGER.error("Error al conectarse con la BDD, categoria", e);
 			throw e;
 		} catch (Exception e) {
 			LOGGER.error("Error al buscar categoria", e);
-			throw new KrakeException("Error al buscar");
+			throw new KrakeException("Error al buscar categoria");
 		} finally {
 			// cerrar la conexion
 			if (con != null) {

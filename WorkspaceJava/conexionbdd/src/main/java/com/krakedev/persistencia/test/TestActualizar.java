@@ -12,7 +12,7 @@ public class TestActualizar {
 
 	public static void main(String[] args) {
 		EstadoCivil ec = new EstadoCivil("U", "Union Libre");
-		Persona p = new Persona("1717154210", "Julio", "Jaramillo", ec);
+		Persona p = new Persona("171714554210", "Julio", "Jaramillo", ec);
 		try {
 			p.setEstatura(150);
 			Date fechaNacimiento = Convertidor.convertirFecha("2020/12/23");

@@ -12,7 +12,7 @@ public class TestAhorros {
 		padre.ahorrar(200);
 		System.out.println(padre);
 
-		Hija hija = new Hija();
+		Hija hija = new Hija(1,2);
 		hija.setNombre("Maria");
 		hija.ahorrar(200);
 		System.out.println(hija);

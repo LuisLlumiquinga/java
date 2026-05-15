@@ -4,7 +4,7 @@ import com.krakedev.herencia.Hija;
 
 public class TestHerencia {
 	public static void main(String[] args) {
-		Hija hija = new Hija();
+		Hija hija = new Hija(2,3);
 
 		hija.setVirtudes(5);
 		hija.setDefectos(2);

@@ -36,7 +36,13 @@ public class Padre {
 		super();
 		this.defectos = defectos;
 		this.virtudes = virtudes;
-		this.nombre=nombre;
+		this.nombre = nombre;
+	}
+
+	public Padre(int defectos, int virtudes) {
+
+		this.defectos = defectos;
+		this.virtudes = virtudes;
 	}
 
 	public int getDefectos() {
